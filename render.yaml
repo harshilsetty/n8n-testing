@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: "admin"   # change this username
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: "yourpassword123"   # change this password
+      - key: WEBHOOK_TUNNEL_URL
+        value: "https://n8n-yourapp.onrender.com" # update after deployment
+      - key: N8N_HOST
+        value: "0.0.0.0"
+      - key: N8N_PORT
+        value: "5678"
+    autoDeploy: true
